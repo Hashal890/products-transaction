@@ -5,7 +5,7 @@ This single-page MERN application was created for a Full Stack Engineer assignme
 ## Deployment
 
 - [Frontend](https://products-transaction-statistics-frontend.vercel.app/)
-- [Backend](https://products-app-frontend-engineer-assignment.vercel.app/)
+- [Backend](https://products-transaction-statistics-backend.vercel.app/)
 
 ## Features
 

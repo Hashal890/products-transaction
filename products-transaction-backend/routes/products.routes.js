@@ -8,7 +8,9 @@ const {
 const productRouter = express.Router();
 
 productRouter.get("/", (req, res) => {
-  res.status(200).send("Hello, world!");
+  res.status(200).json({
+    message: "Welcome to my products transactions backend deployment!",
+  });
 });
 productRouter.get("/initialize-products-collection-data", initializeProducts);
 productRouter.get("/transactions", getTransactions);
