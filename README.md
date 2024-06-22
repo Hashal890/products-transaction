@@ -1,16 +1,33 @@
 # Products Transaction App
 
-This single-page MERN application was created for a Full Stack Engineer assignment at Roxiler Systems. It features a product transactions table, monthly transaction statistics, and a bar chart displaying the price range and item count for the selected month.
+This single-page MERN application was developed for a Full Stack Engineer assignment at Roxiler Systems. It includes a product transactions table, monthly transaction statistics, a bar chart showing the price range and item count for the selected month, and a pie chart displaying unique categories and the number of items per category for the selected month.
 
 ## Deployment
 
 - [Frontend](https://products-transaction-statistics-frontend.vercel.app/)
-- [Backend](https://products-transaction-statistics-backend.vercel.app/)
+- [Backend](https://products-transaction-statistics-backend.onrender.com)
 
 ## Features
 
 - **Frontend**:
+
+  - **Search Functionality**: Search transactions by title, description, or price.
+  - **Transaction Table**: Displays all product transaction data with comprehensive details.
+  - **Monthly Statistics**: Select a month to view statistics, bar charts, and pie charts specific to that month.
+    - **Statistics**: Shows total sales amount, total sold items, and total unsold items for the selected month.
+    - **Bar Chart**: Displays the price range and the number of items within that range for the selected month, irrespective of the year.
+    - **Pie Chart**: Displays categories and the number of items within each category for the selected month, irrespective of the year.
+  - **Responsive Design**: Ensures optimal viewing experience across all devices.
+
 - **Backend**:
+  - **Data Import API**: Imports data from `https://s3.amazonaws.com/roxiler.com/product_transaction.json` into the database.
+  - **Transaction Listing API**: Lists all transactions with support for search and pagination.
+    - **Search and Pagination**: Allows searching by product title, description, or price, and paginates results. If no search parameters are provided, returns all records for the specified page.
+    - **Default Pagination**: Defaults to page = 1, per page = 10.
+  - **Statistics API**: Provides the total sales amount, number of sold items, and number of unsold items for the selected month.
+  - **Bar Chart Data API**: Returns the price range and number of items within that range for the selected month, irrespective of the year.
+  - **Pie Chart Data API**: Returns unique categories and the number of items within each category for the selected month, irrespective of the year.
+  - **Combined Data API**: Fetches data from the Statistics, Bar Chart Data, and Pie Chart Data APIs, combines the results, and returns a single JSON response.
 
 ## Technology Stack
 
