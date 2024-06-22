@@ -1,18 +1,22 @@
-import React, { useEffect } from "react";
-import { Box } from "@chakra-ui/react";
-import axios from "axios";
+import React from "react";
+import { Box, Text } from "@chakra-ui/react";
+import TopSearchAndMonthSelect from "./components/TopSearchAndMonthSelect";
+import TransactionsTable from "./components/TransactionsTable";
 
 function App() {
-  useEffect(() => {
-    axios
-      .get(
-        "/transactions"
-      )
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  }, []);
-
-  return <Box>Products Transaction</Box>;
+  return (
+    <Box p={[0, 0, 4]}>
+      <Text
+        textAlign={"center"}
+        fontSize={["20px", "20px", "30px"]}
+        fontWeight={"bold"}
+      >
+        Transaction Dashboard
+      </Text>
+      <TopSearchAndMonthSelect />
+      <TransactionsTable />
+    </Box>
+  );
 }
 
 export default App;

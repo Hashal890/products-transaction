@@ -15,6 +15,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(cors());
 app.use("/", productRouter);
 
 app.listen(PORT, async () => {
