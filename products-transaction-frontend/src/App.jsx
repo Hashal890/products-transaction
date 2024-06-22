@@ -3,6 +3,7 @@ import { Box, Text } from "@chakra-ui/react";
 import TopSearchAndMonthSelect from "./components/TopSearchAndMonthSelect";
 import TransactionsTable from "./components/TransactionsTable";
 import StatisticsCard from "./components/StatisticsCard";
+import BarChartMonthStats from "./components/BarChartMonthStats";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <TopSearchAndMonthSelect />
       <TransactionsTable />
       <StatisticsCard />
+      <BarChartMonthStats />
     </Box>
   );
 }

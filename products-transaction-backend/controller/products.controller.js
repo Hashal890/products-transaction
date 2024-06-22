@@ -76,14 +76,14 @@ const getStatistics = async (month) => {
   }
 };
 
-const getBarChartInfo = async (month) => {
+const getBarChartData = async (month) => {
   try {
     const productsTransactions = await ProductModel.find({
       $expr: {
         $eq: [{ $month: "$dateOfSale" }, month],
       },
     });
-    const priceRange = {
+    const priceRangesOfMonth = {
       "0-100": 0,
       "101-200": 0,
       "201-300": 0,
@@ -97,24 +97,39 @@ const getBarChartInfo = async (month) => {
     };
     for (let i = 0; i < productsTransactions.length; i++) {
       let price = productsTransactions[i].price;
-      if (price >= 0 && price <= 100) priceRange["0-100"]++;
-      else if (price >= 101 && price <= 200) priceRange["101-200"]++;
-      else if (price >= 201 && price <= 300) priceRange["201-300"]++;
-      else if (price >= 301 && price <= 400) priceRange["301-400"]++;
-      else if (price >= 401 && price <= 500) priceRange["401-500"]++;
-      else if (price >= 501 && price <= 600) priceRange["501-600"]++;
-      else if (price >= 601 && price <= 700) priceRange["601-700"]++;
-      else if (price >= 701 && price <= 800) priceRange["701-800"]++;
-      else if (price >= 801 && price <= 900) priceRange["801-900"]++;
-      else priceRange["901-above"]++;
+      if (price >= 0 && price <= 100) priceRangesOfMonth["0-100"]++;
+      else if (price >= 101 && price <= 200) priceRangesOfMonth["101-200"]++;
+      else if (price >= 201 && price <= 300) priceRangesOfMonth["201-300"]++;
+      else if (price >= 301 && price <= 400) priceRangesOfMonth["301-400"]++;
+      else if (price >= 401 && price <= 500) priceRangesOfMonth["401-500"]++;
+      else if (price >= 501 && price <= 600) priceRangesOfMonth["501-600"]++;
+      else if (price >= 601 && price <= 700) priceRangesOfMonth["601-700"]++;
+      else if (price >= 701 && price <= 800) priceRangesOfMonth["701-800"]++;
+      else if (price >= 801 && price <= 900) priceRangesOfMonth["801-900"]++;
+      else priceRangesOfMonth["901-above"]++;
     }
-    return priceRange;
+    const barCharData = [
+      { priceRange: "100", numberOfItems: priceRangesOfMonth["0-100"] },
+      { priceRange: "200", numberOfItems: priceRangesOfMonth["101-200"] },
+      { priceRange: "300", numberOfItems: priceRangesOfMonth["201-300"] },
+      { priceRange: "400", numberOfItems: priceRangesOfMonth["301-400"] },
+      { priceRange: "500", numberOfItems: priceRangesOfMonth["401-500"] },
+      { priceRange: "600", numberOfItems: priceRangesOfMonth["501-600"] },
+      { priceRange: "700", numberOfItems: priceRangesOfMonth["601-700"] },
+      { priceRange: "800", numberOfItems: priceRangesOfMonth["701-800"] },
+      { priceRange: "900", numberOfItems: priceRangesOfMonth["801-900"] },
+      {
+        priceRange: "above 900",
+        numberOfItems: priceRangesOfMonth["901-above"],
+      },
+    ];
+    return barCharData;
   } catch (err) {
     return { error: err.message };
   }
 };
 
-const getPieChartInfo = async (month) => {
+const getPieChartData = async (month) => {
   try {
     const productsTransactions = await ProductModel.find({
       $expr: {
@@ -127,7 +142,11 @@ const getPieChartInfo = async (month) => {
       if (!categories[category]) categories[category] = 1;
       else categories[category]++;
     }
-    return categories;
+    const pieChartData = [];
+    for (let key in categories) {
+      pieChartData.push({ x: key, y: categories[key] });
+    }
+    return pieChartData;
   } catch (err) {
     return { error: err.message };
   }
@@ -142,16 +161,16 @@ const getAllThreeApiResponses = async (req, res) => {
         message: "Add correct month in query. Month should be between 1 to 12",
       });
     }
-    const [statistics, barChartInfo, pieChartInfo] = await Promise.all([
+    const [statistics, barChartData, pieChartData] = await Promise.all([
       getStatistics(month),
-      getBarChartInfo(month),
-      getPieChartInfo(month),
+      getBarChartData(month),
+      getPieChartData(month),
     ]);
     res.status(200).json({
       message: "Request successfull!",
       statistics,
-      barChartInfo,
-      pieChartInfo,
+      barChartData,
+      pieChartData,
     });
   } catch (err) {
     res.status(500).json({ error: err.message });

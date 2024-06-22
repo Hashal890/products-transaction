@@ -15,8 +15,8 @@ const initSearchListState = {
 const initSelectMonthState = {
   message: "",
   statistics: {},
-  barChartInfo: {},
-  pieChartInfo: {},
+  barChartData: [],
+  pieChartData: [],
   month: 3,
 };
 
