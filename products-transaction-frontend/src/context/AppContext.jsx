@@ -28,7 +28,7 @@ export const AppContextProvider = ({ children }) => {
   const getTransactions = async (queries) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/transactions?search=${queries.search}&page=${queries.page}&perPage=${queries.perPage}`
+        `https://products-transaction-statistics-backend.vercel.app/transactions?search=${queries.search}&page=${queries.page}&perPage=${queries.perPage}`
       );
       setSearchListState(data);
     } catch (err) {
@@ -39,7 +39,7 @@ export const AppContextProvider = ({ children }) => {
   const getAllThreeApiResponses = async (month) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/get-all-three-api?month=${month}`
+        `https://products-transaction-statistics-backend.vercel.app/get-all-three-api?month=${month}`
       );
       setSelectMonthState({ ...data, month });
     } catch (err) {
