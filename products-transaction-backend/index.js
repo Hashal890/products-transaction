@@ -14,7 +14,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://products-transaction-statistics-frontend.vercel.app",
+    origin: [
+      "http://localhost:3000/",
+      "https://products-transaction-statistics-frontend.vercel.app",
+    ],
     methods: ["GET"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
