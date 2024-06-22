@@ -17,6 +17,7 @@ const initSelectMonthState = {
   statistics: {},
   barChartInfo: {},
   pieChartInfo: {},
+  month: 3,
 };
 
 export const AppContextProvider = ({ children }) => {
@@ -40,7 +41,7 @@ export const AppContextProvider = ({ children }) => {
       const { data } = await axios.get(
         `http://localhost:8080/get-all-three-api?month=${month}`
       );
-      setSelectMonthState(data);
+      setSelectMonthState({ ...data, month });
     } catch (err) {
       console.log(err);
     }
@@ -53,9 +54,7 @@ export const AppContextProvider = ({ children }) => {
       page: 1,
       perPage: 10,
     });
-    setTimeout(() => {
-      getAllThreeApiResponses(3);
-    }, 2000);
+    getAllThreeApiResponses(selectMonthState.month);
   }, []);
 
   return (

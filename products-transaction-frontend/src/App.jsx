@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text } from "@chakra-ui/react";
 import TopSearchAndMonthSelect from "./components/TopSearchAndMonthSelect";
 import TransactionsTable from "./components/TransactionsTable";
+import StatisticsCard from "./components/StatisticsCard";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       </Text>
       <TopSearchAndMonthSelect />
       <TransactionsTable />
+      <StatisticsCard />
     </Box>
   );
 }

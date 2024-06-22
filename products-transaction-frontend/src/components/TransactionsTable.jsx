@@ -34,7 +34,7 @@ const TransactionsTable = () => {
   };
 
   return (
-    <Box mt={8}>
+    <Box mt={12}>
       <TableContainer>
         <Table size={"sm"} variant="simple">
           <Thead>
