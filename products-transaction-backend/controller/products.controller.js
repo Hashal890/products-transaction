@@ -76,15 +76,58 @@ const getStatistics = async (month) => {
   }
 };
 
-const getBarChartInfo = (month) => {
+const getBarChartInfo = async (month) => {
   try {
+    const productsTransactions = await ProductModel.find({
+      $expr: {
+        $eq: [{ $month: "$dateOfSale" }, month],
+      },
+    });
+    const priceRange = {
+      "0-100": 0,
+      "101-200": 0,
+      "201-300": 0,
+      "301-400": 0,
+      "401-500": 0,
+      "501-600": 0,
+      "601-700": 0,
+      "701-800": 0,
+      "801-900": 0,
+      "901-above": 0,
+    };
+    for (let i = 0; i < productsTransactions.length; i++) {
+      let price = productsTransactions[i].price;
+      if (price >= 0 && price <= 100) priceRange["0-100"]++;
+      else if (price >= 101 && price <= 200) priceRange["101-200"]++;
+      else if (price >= 201 && price <= 300) priceRange["201-300"]++;
+      else if (price >= 301 && price <= 400) priceRange["301-400"]++;
+      else if (price >= 401 && price <= 500) priceRange["401-500"]++;
+      else if (price >= 501 && price <= 600) priceRange["501-600"]++;
+      else if (price >= 601 && price <= 700) priceRange["601-700"]++;
+      else if (price >= 701 && price <= 800) priceRange["701-800"]++;
+      else if (price >= 801 && price <= 900) priceRange["801-900"]++;
+      else priceRange["901-above"]++;
+    }
+    return priceRange;
   } catch (err) {
     return { error: err.message };
   }
 };
 
-const getPieChartInfo = (month) => {
+const getPieChartInfo = async (month) => {
   try {
+    const productsTransactions = await ProductModel.find({
+      $expr: {
+        $eq: [{ $month: "$dateOfSale" }, month],
+      },
+    });
+    const categories = {};
+    for (let i = 0; i < productsTransactions.length; i++) {
+      let { category } = productsTransactions[i];
+      if (!categories[category]) categories[category] = 1;
+      else categories[category]++;
+    }
+    return categories;
   } catch (err) {
     return { error: err.message };
   }
