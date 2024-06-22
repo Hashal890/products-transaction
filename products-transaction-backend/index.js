@@ -8,7 +8,13 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://products-transaction-statistics-frontend.vercel.app",
+    methods: ["GET"],
+    credentials: true,
+  })
+);
 app.use("/", productRouter);
 
 app.listen(PORT, async () => {
