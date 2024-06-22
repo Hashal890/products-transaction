@@ -18,7 +18,7 @@ const StatisticsCard = () => {
   return (
     <VStack mt={12} justifyContent={"center"} alignItems={"center"}>
       <Flex justifyContent={"center"} alignItems={"center"} gap={6}>
-        <Text fontSize={"20px"} fontWeight={"bold"}>
+        <Text fontSize={["14px", "14px", "20px"]} fontWeight={"bold"}>
           Statistics
         </Text>
         <MonthSelect />

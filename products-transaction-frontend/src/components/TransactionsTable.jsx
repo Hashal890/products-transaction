@@ -77,7 +77,10 @@ const TransactionsTable = () => {
           <Button>{searchListState.page}</Button>
           <Button
             onClick={getItemsOfNextPage}
-            isDisabled={searchListState.page === searchListState.totalPages}
+            isDisabled={
+              searchListState.page === searchListState.totalPages ||
+              searchListState.productsTransactions.length === 0
+            }
           >
             Next
           </Button>

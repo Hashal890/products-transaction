@@ -4,14 +4,16 @@ import TopSearchAndMonthSelect from "./components/TopSearchAndMonthSelect";
 import TransactionsTable from "./components/TransactionsTable";
 import StatisticsCard from "./components/StatisticsCard";
 import BarChartMonthStats from "./components/BarChartMonthStats";
+import PieChartMonthStats from "./components/PieChartMonthStats";
 
 function App() {
   return (
-    <Box p={[0, 0, 4]}>
+    <Box p={[2, 2, 4]}>
       <Text
         textAlign={"center"}
-        fontSize={["20px", "20px", "30px"]}
+        fontSize={["16px", "16px", "22px", "30px"]}
         fontWeight={"bold"}
+        mt={4}
       >
         Transaction Dashboard
       </Text>
@@ -19,6 +21,7 @@ function App() {
       <TransactionsTable />
       <StatisticsCard />
       <BarChartMonthStats />
+      <PieChartMonthStats />
     </Box>
   );
 }

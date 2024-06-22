@@ -17,7 +17,7 @@ const BarChartMonthStats = () => {
       // w={"600px"}
     >
       <Flex justifyContent={"center"} alignItems={"center"} gap={6}>
-        <Text fontSize={"20px"} fontWeight={"bold"}>
+        <Text fontSize={["14px", "14px", "20px"]} fontWeight={"bold"}>
           Bar Chart Stats
         </Text>
         <MonthSelect />
