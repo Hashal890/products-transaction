@@ -6,7 +6,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        "https://products-transaction-statistics-backend.vercel.app/transactions"
+        "/transactions"
       )
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
