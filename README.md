@@ -1,6 +1,6 @@
 # Products Transaction App
 
-This single-page MERN application was developed for a Full Stack Engineer assignment at Roxiler Systems. It includes a product transactions table, monthly transaction statistics, a bar chart showing the price range and item count for the selected month, and a pie chart displaying unique categories and the number of items per category for the selected month.
+I developed a comprehensive single-page MERN application showcasing a product transactions table alongside monthly transaction statistics. It includes dynamic visual elements such as a bar chart illustrating price ranges and item counts for the chosen month, and a pie chart presenting unique categories with corresponding item counts.
 
 ## Deployment
 
