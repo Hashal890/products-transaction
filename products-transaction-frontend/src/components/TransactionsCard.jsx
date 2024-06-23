@@ -24,7 +24,7 @@ const TransactionsCard = ({
         <Text>{price}</Text>
       </Td>
       <Td>
-        <Text>{category}</Text>
+        <Text textTransform={"capitalize"}>{category}</Text>
       </Td>
       <Td>
         <Text>{sold ? "Yes" : "No"}</Text>

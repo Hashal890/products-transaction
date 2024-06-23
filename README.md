@@ -44,6 +44,30 @@ List and provide a brief overview of the technologies used in the project.
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [Mongoose Paginate v2](https://www.npmjs.com/package/mongoose-paginate-v2)
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [Chakra UI](https://chakra-ui.com/getting-started)
 - [React Icons](https://react-icons.github.io/)
+
+## Screenshots
+
+**Product Transactions Table**
+
+![product-transactions-table](./screenshots/product-transactions-table.jpg)
+
+**Statistics of Month**
+
+![statistics](./screenshots/statistics-of-month.jpg)
+
+**Bar Chart of Month**
+
+![bar- chart-of-month](./screenshots/bar-chart-of-month.jpg)
+
+**Pie Chart of Month**
+
+![pie-chart-of-month](./screenshots/pie-chart-of-month.jpg)
+
+## Connect with Me
+
+- [LinkedIn](https://www.linkedin.com/in/harshalpardeshi/)
+- [Email](mailto:pardeshiharshal90@gmail.com)
