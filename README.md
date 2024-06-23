@@ -71,3 +71,4 @@ List and provide a brief overview of the technologies used in the project.
 
 - [LinkedIn](https://www.linkedin.com/in/harshalpardeshi/)
 - [Email](mailto:pardeshiharshal90@gmail.com)
+
